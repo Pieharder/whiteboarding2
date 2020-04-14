@@ -1,0 +1,71 @@
+Problem #1
+Compose a function called paint() and then add it to three different painters. Each painter can only paint with one color. This should be the end result:
+
+const paint = function(color) {
+  const obj = {
+    paints: function(painter) {
+      return `${painter} paints the color ${color}.`
+    }
+  }
+  return obj;
+}
+
+const painting = paint("red");
+
+
+painting.paints("Jamison");
+
+> Jamison paints the color red. 
+
+
+-----------------------------------------------------------------------------------------
+
+Problem #2
+Compose a function called sound(). You should be able to add the following functionality to the objects listed:
+> faucet.sound()
+"Drip drip drip."
+> oldCar.sound()
+"Grumble grumble"
+> sleepyBear.sound()
+"Grrr...yawn"
+
+
+const makeSound = function(x){
+  const obj = {
+    sound: function(y){
+      return `The ${y} makes this sound, ${x}!`
+    }
+  }
+  return obj
+}
+
+const faucet = makeSound("drip");
+faucet.sound("faucet");
+const oldCar = makeSound("Grumble");
+oldCar.sound("oldCar");
+const sleepyBear = makeSound("grrerrrrrrzzzzz");
+sleepyBear.sound();
+
+---------------------------------------------------------------------------------------
+
+Problem #3
+Compose a function called throw(). The throw() function should determine the distance and speed a battle robot can throw a spear. This function should be unary, so you will need to use currying.
+
+Next, add the throw() function to multiple battle robots. A result might look something like this:
+
+> battleRobot1.throw();
+"The battle robot throws the spear 100 yards at 200 miles per hour!"
+
+const canThrow = function() {
+  const obj = {
+    throw : function(speed) {
+      return function(distance) {
+        return `The battle robot throws the spear ${distance} yards at ${speed} miles per hour!`
+      }
+    }
+  }
+  return obj;
+}
+
+const battlerobot1 = canThrow();
+battlerobot1.throw(88)(100);
